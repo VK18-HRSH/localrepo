@@ -1,4 +1,4 @@
-# GIT :- Git is a version control system.
+# GIT :- Git is a version control system. Its Tool
 
 It tracks: code changes, project history, who changed what, previous versions
 
@@ -34,19 +34,6 @@ revert
 SSH
 PR workflow
 
-
-Important                Terms
-Repository (Repo)	  Project folder tracked by Git
-Commit	              Snapshot/save point
-Branch	              Separate version of code
-Merge	              Combine branches
-Clone	              Copy repo from GitHub
-Push	              Upload code to GitHub
-Fetch                 Fetch downloads only.
-Pull	              Downloads latest code + Merge
-Remote	              Online GitHub repo
-Local Repo	          Repo on your computer
-
 # GitHub Workflow (MOST COMMON) :-
 Clone Repo
 ↓
@@ -64,12 +51,39 @@ Review
 ↓
 Merge
 
+
 # Git File Lifecycle (VERY IMPORTANT): A file moves through these stages :-
 Working Directory (our local repo)
-   ↓
+↓
 Staging Area (source control)
-   ↓
+↓
 Repository (main - remote/Github repo)
+
+
+# Typical Daily Workflow :-
+Write code
+↓
+Make several changes
+↓
+git add .
+↓
+git commit -m "Meaningful update"
+↓
+git push
+That’s how developers usually work.
+
+
+Important                Terms
+Repository (Repo)	  Project folder tracked by Git
+Commit	              Snapshot/save point
+Branch	              Separate version of code
+Merge	              Combine branches
+Clone	              Copy repo from GitHub
+Push	              Upload code to GitHub
+Fetch                 Fetch downloads only.
+Pull	              Downloads latest code + Merge
+Remote	              Online GitHub repo
+Local Repo	          Repo on your computer
 
 
 # Important Git Commands Summary :-
