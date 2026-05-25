@@ -1,0 +1,176 @@
+# GIT :- Git is a version control system.
+
+It tracks: code changes, project history, who changed what, previous versions
+
+Think of Git like: “Save points for your code project”
+
+# GITHUB :- GitHub is a cloud platform where Git repositories are stored online.
+
+GitHub helps with: backup, collaboration, sharing code, team projects, deployment integration
+
+PHASE 1 - BASICS :-
+git init
+add
+commit
+status
+log
+
+PHASE 2 - GITHUB :-
+create repo
+push
+pull
+clone
+
+PHASE 3 - BRANCHING :-
+branch
+checkout
+merge
+conflicts
+
+PHASE 4 - ADVANCED :-
+stash
+reset
+revert
+SSH
+PR workflow
+
+
+Important                Terms
+Repository (Repo)	  Project folder tracked by Git
+Commit	              Snapshot/save point
+Branch	              Separate version of code
+Merge	              Combine branches
+Clone	              Copy repo from GitHub
+Push	              Upload code to GitHub
+Fetch                 Fetch downloads only.
+Pull	              Downloads latest code + Merge
+Remote	              Online GitHub repo
+Local Repo	          Repo on your computer
+
+# GitHub Workflow (MOST COMMON) :-
+Clone Repo
+↓
+Create Branch
+↓
+Write Code
+↓
+Commit
+↓
+Push Branch
+↓
+Create Pull Request
+↓
+Review
+↓
+Merge
+
+# Git File Lifecycle (VERY IMPORTANT): A file moves through these stages :-
+Working Directory (our local repo)
+   ↓
+Staging Area (source control)
+   ↓
+Repository (main - remote/Github repo)
+
+
+# Important Git Commands Summary :-
+Command	               Purpose
+git init	            Start Git
+git status	            Check changes
+git add .	            Stage files
+git commit -m ""	    Save snapshot
+git log	                History
+git branch	            View branches
+git checkout	        Switch branch
+git merge	            Merge branches
+git push	            Upload
+git pull	            Download + Merge
+git clone	            Copy repo
+git stash	            Temporary save
+
+
+# STEPS TO USE GIT :- 
+
+1. Git Setup :-
+git config --global user.name 'your name(globally it will used everywhere)'
+git config --global user.email 'your email Id '
+
+
+# COMMANDS :-
+
+2. git init :-
+This creates hidden .git folder, Now Git starts tracking project.
+
+3. git status :- 
+Check Status
+
+4. git add .  :-
+Add all Files to Staging
+
+5. git commit -m "Initial commit" :-
+Commit message should explain changes.
+
+6. git log / git log --oneline :-
+Check Commit History
+
+7. git branch feature-login :-
+Create New Branch
+
+8. git checkout feature-login / modern-way - git switch feature-login
+Switch Branch
+
+9. git checkout -b feature-login :-
+Create + Switch Together
+
+10. git branch :-
+See All Branches, Current branch has *
+
+11. git merge feature-login :-
+Now feature code added to main.
+
+12. .gitignore :-
+Some files should NOT go to GitHub.
+Examples: node_modules, .env, build folders 
+
+PUSH LOCAL PROJECT TO GITHUB :-
+S-1 : We have to create Repo on GitHub
+S-2 : Connect Local Repo :-
+13. git remote add origin https://github.com/VK18-HRSH/localrepo.git
+
+PUSH CODE : For First Time :-
+14. git push -u origin main
+LOCAL → GITHUB
+Upload local commits to remote GitHub repo
+Git remembers : local main ↔ GitHub main
+After That :- git push
+
+15. git clone repo-url :-
+Clone Repository, Download repo from GitHub
+
+16. git pull origin main :-
+GITHUB → LOCAL
+Download + merge remote changes into local repo
+
+17. git stash :-
+Temporarily save unfinished work.
+
+# What Are -m, -M, -u This :-
+These are called: flags / options, They modify command behavior.
+
+1. -m :- means : message
+git commit -m "message"
+
+2. -u :- Meaning : Connect local branch with remote branch.
+git push -u origin main
+
+3. -M :- means : move/rename branch forcefully
+git branch -M main ==> like Here: master → main
+
+4. -v :- means : Shows verbose/view details.
+git remote -v
+
+5. -f :- means : Force push, Dangerous sometimes.
+git push -f
+
+# IF YOU EVER STUCK IN VIM EDITOR THEN SIMPLY DO THIS :
+How To Exit :-
+Simply press :-  q/:qw 
