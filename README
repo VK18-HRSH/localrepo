@@ -129,6 +129,15 @@ Check Commit History
 7. git branch feature-login :-
 Create New Branch
 
+git branch
+All Local branches
+
+git branch -r
+All Remote branches
+
+git branch -a
+Both Local and Remote branches
+
 8. git checkout feature-login / modern-way - git switch feature-login
 Switch Branch
 
@@ -185,6 +194,34 @@ git remote -v
 5. -f :- means : Force push, Dangerous sometimes.
 git push -f
 
+6. -b :- means : Creates New Branch
+git checkout -b feature-login
+
+7. -d : use : for local branch deletion(IF MERGED)
+git branch -d feature-login
+
+8. -D : use : for local branch deletion(IF NOT MERGED MEANS FORCE DELETE)
+git branch -D feature-login
+
 # IF YOU EVER STUCK IN VIM EDITOR THEN SIMPLY DO THIS :
 How To Exit :-
-Simply press :-  q/:qw 
+Simply press :-  q / ! / :qw / :q!
+
+# There are TWO types of branch deletion :-
+1. Delete Local Branch :-
+git branch -d feature-login
+
+IMPORTANT : -d works only if : ✅ branch already merged
+Otherwise Git protects you.
+
+If branch not merged:
+Force Delete (Dangerous) :-
+git branch -D feature-login
+Capital -D = force delete.
+
+2. Delete Remote Branch (GitHub) :-
+To remove branch from GitHub:
+
+git push origin --delete feature-login
+
+This deletes : feature-login, from GitHub remote repo.
