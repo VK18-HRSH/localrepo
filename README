@@ -246,6 +246,7 @@ To remove branch from GitHub:
 
 git push origin --delete feature-login
 
+<<<<<<< HEAD
 This deletes : feature-login, from GitHub remote repo.
 
 # GitHub Pull Request Workflow (PR Workflow) :-
@@ -380,3 +381,4 @@ git revert COMMIT_ID
 
 Example:
 git revert a1b2c3
+
