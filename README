@@ -129,6 +129,15 @@ Check Commit History
 7. git branch feature-login :-
 Create New Branch
 
+git branch
+All Local branches
+
+git branch -r
+All Remote branches
+
+git branch -a
+Both Local and Remote branches
+
 8. git checkout feature-login / modern-way - git switch feature-login
 Switch Branch
 
@@ -167,6 +176,28 @@ Download + merge remote changes into local repo
 17. git stash :-
 Temporarily save unfinished work.
 
+18. git stash pop :-
+restore + remove stash
+
+19. git stash apply :-
+restore only
+
+20. git stash list :-
+See Stored Stashes
+
+21. git reset --soft HEAD~1 :-
+Soft Reset.
+
+22. git reset HEAD~1 :-
+Mixed Reset.
+
+23. git reset --hard HEAD~1 :-
+Hard Reset.
+
+24. git revert HEAD :-
+Creates a new commit instead of deleting previous commit but it deletes the code of previous commit.
+You can see that previous commit in "git log"
+
 # What Are -m, -M, -u This :-
 These are called: flags / options, They modify command behavior.
 
@@ -185,6 +216,167 @@ git remote -v
 5. -f :- means : Force push, Dangerous sometimes.
 git push -f
 
+6. -b :- means : Creates New Branch
+git checkout -b feature-login
+
+7. -d : use : for local branch deletion(IF MERGED)
+git branch -d feature-login
+
+8. -D : use : for local branch deletion(IF NOT MERGED MEANS FORCE DELETE)
+git branch -D feature-login
+
 # IF YOU EVER STUCK IN VIM EDITOR THEN SIMPLY DO THIS :
 How To Exit :-
-Simply press :-  q/:qw 
+Simply press :-  q / ! / :qw / :q!
+
+# There are TWO types of branch deletion :-
+1. Delete Local Branch :-
+git branch -d feature-login
+
+IMPORTANT : -d works only if : ✅ branch already merged
+Otherwise Git protects you.
+
+If branch not merged:
+Force Delete (Dangerous) :-
+git branch -D feature-login
+Capital -D = force delete.
+
+2. Delete Remote Branch (GitHub) :-
+To remove branch from GitHub:
+
+git push origin --delete feature-login
+
+This deletes : feature-login, from GitHub remote repo.
+
+# GitHub Pull Request Workflow (PR Workflow) :-
+
+A Pull Request means :
+“Please review my branch and merge it into another branch.”
+Usually : feature branch → main branch
+
+# MOST IMPORTANT UNDERSTANDING :
+
+PR is basically : a controlled merge request
+with : review, discussion, testing, approval
+before main gets modified.
+
+# REAL INDUSTRY FLOW :-
+git checkout -b feature
+↓
+write code
+↓
+git add .
+git commit
+↓
+git push origin feature
+↓
+Open PR
+↓
+Review
+↓
+Merge PR
+↓
+git checkout main
+git pull
+
+# THIS is the standard workflow :-
+Create feature branch
+↓
+Write code there
+↓
+Push feature branch
+↓
+Open Pull Request
+↓
+Team lead reviews
+↓
+Checks/tests run
+↓
+Conflicts resolved if any
+↓
+PR merged into main
+
+# Real Visualization :-
+main
+│
+├── feature-auth
+├── feature-payment
+├── feature-dashboard
+
+Each developer works separately, Then PR merges features one-by-one safely.
+Because : main branch should be protected.
+
+# GIT RESET :- 
+What is git reset?
+
+git reset means: “Move Git back to an older state.”
+
+Depending on type, it can : unstage files, remove commits, remove changes completely
+
+# THREE TYPES OF RESET :- 
+
+Reset Type	             What Happens
+--soft	              remove commit only
+--mixed	              remove commit + unstage
+--hard	              remove EVERYTHING
+
+SOFT RESET 
+1. git reset --soft HEAD~1 :-
+Meaning : remove last commit BUT keep all code and changes staged.  
+USE CASE :-
+Suppose : wrong commit message, then you can change through this.
+
+MIXED RESET
+2. git reset HEAD~1 :-
+It means : git reset --mixed HEAD~1
+Meaning : remove last commit and changes unstaged BUT keep all code.
+USE CASE :-
+Suppose : commit was wrong but code still needed. 
+
+HARD RESET
+3. git reset --hard HEAD~1 :- 
+Meaning : remove last commit and remove all code, changes unstaged.
+Hard reset can permanently destroy work.
+
+First Understand HEAD :-
+Git keeps pointer called : HEAD
+Meaning : current/latest commit position
+
+Syntax	      Meaning
+HEAD~1	    one commit back
+HEAD~2	    two commits back
+
+# VERY COMMON USE CASES :-
+
+Case 1 — Wrong Commit Message :-
+git reset --soft HEAD~1
+git commit -m "Correct message"
+
+Case 2 — Accidentally Added Wrong Files :-
+git reset
+unstages files.
+
+Case 3 — Completely Remove Last Commit :-
+git reset --hard HEAD~1
+
+# GIT REVERT :-
+
+What is git revert?
+
+git revert means :-
+“Undo a commit safely by creating a new opposite commit.”
+
+Command : git revert HEAD
+Observe:
+new commit created
+old commit still visible
+code reversed
+
+IMPORTANT :-
+❌ it does NOT delete history  
+✅ it adds new history and it deletes previous commit or a specific commit through commit_ID which you can see it in "git log"
+Use:
+git revert COMMIT_ID
+
+Example:
+git revert a1b2c3
