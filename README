@@ -382,3 +382,62 @@ git revert COMMIT_ID
 Example:
 git revert a1b2c3
 
+# GIT REBASE :-
+
+Rebase says:
+“Take my feature commits and replay them on top of latest main.”
+
+# both merge and rebase finally combine code :
+BUT The MAIN difference is : Git history (commits)
+
+# Real Commit History Example :
+If you run:
+git log --oneline
+
+You may see in source control:
+M Merge branch 'main'
+D Added JWT auth
+
+Notice EXTRA that commit :
+Merge branch 'main'
+That commit exists ONLY because merge happened.
+
+# git rebase main :
+Using the above command NO extra merge commit created which created in git merge feature.
+That’s why : rebase gives cleaner history
+
+# REAL COMMIT LOG DIFFERENCE :
+1. After Merge :
+Merge branch 'main'
+Added JWT auth
+Added login page
+Fixed dashboard bug
+Added navbar
+It looks Messier.
+
+2. After Rebase :
+Added JWT auth
+Added login page
+Fixed dashboard bug
+Added navbar
+It gives Cleaner linear flow.
+
+# Merge Says :
+"Let's combine histories"
+So Git creates:extra merge commit
+
+# Rebase Says :
+"Let's replay my commits on latest main"
+So:❌ no merge commit needed  
+
+# THE BIGGEST DIFFERENCE :
+Command	        Main Purpose
+git pull	    Get latest remote code
+git merge	    Combine two branches
+git rebase	  Replay commits on updated base
+
+# FINAL PUSH CONFUSION CLEARED :
+Command	        Push Needed After?
+git pull	        Usually NO (depends on scenrio)
+git merge	        YES (coz after merge it updates only local, we have to update main also)
+git rebase	      YES (same as merge)
