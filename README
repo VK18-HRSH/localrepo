@@ -437,7 +437,137 @@ git merge	    Combine two branches
 git rebase	  Replay commits on updated base
 
 # FINAL PUSH CONFUSION CLEARED :
-Command	        Push Needed After?
+Command	                Push Needed After?
 git pull	        Usually NO (depends on scenrio)
 git merge	        YES (coz after merge it updates only local, we have to update main also)
 git rebase	      YES (same as merge)
+
+
+# 📚 Git & GitHub Command Cheat Sheet :
+
+#Module 1 — Initialize Repository :
+
+Command	                            Description	                                                  When to Use
+git init	       Initialize a new Git repository by creating the .git folder.	              First time adding Git to a p
+git status	     Shows current branch, staged files, unstaged files, and untracked files.	  Before/after almost every Git operation.
+
+#Module 2 — Staging Area :
+
+Command	                      Description	                                          When to Use
+git add .	        Stage all new and modified files.	                              Before committing.
+git add <file>	  Stage only a specific file. 	                              When committing selected files only.
+git reset	        Unstage all staged files (default = --mixed).	              Accidentally staged the wrong files.
+
+#Module 3 — Commit :
+
+Command	                                    Description	                                         When to Use
+git commit -m "message"	            Save staged changes into Git history.	                     Every logical change.
+git log	                            Show complete commit history.	                             View detailed history.
+git log --oneline	                  Compact commit history.	                                       Daily usage.
+git log --oneline --graph --all	    Visual branch graph.	                                     Understand branch history.
+
+#Module 4 — Remote Repository :
+
+Command	                                  Description	                                          When to Use
+git remote add origin <url>	      Connect local repository to GitHub.	                           First push.
+git remote -v	                    Show connected remote repositories.	                         Verify remote URL.
+
+#Module 5 — Push & Pull :
+
+Command	                                Description	                                              When to Use
+git push -u origin main	          Push first time and set upstream.	                             Initial push.
+git push	                        Push commits to remote.	                                    Daily use after first push.
+git pull	                        Fetch + Merge remote changes.	                              Sync local branch with remote.
+git fetch	                        Download remote changes without merging.	                  Check updates before merging.
+
+#Module 6 — Branching :
+
+Command	                                 Description	                                          When to Use
+git branch	                        List local branches.	                                     View branches.
+git branch <name>	                    Create branch.	                                        New feature/bugfix.
+git checkout <branch>	                Switch branch.	                                        Move between branches.
+git checkout -b <branch>	          Create and switch branch.	                                Most common workflow.
+git branch -d <branch>	            Delete local branch.	                                    After merging feature.
+
+#Module 7 — Remote Branches :
+
+Command	                                     Description	                                        When to Use
+git push origin <branch>	              Push a branch to GitHub.	                          First time pushing feature branch.
+git push origin --delete <branch>	      Delete remote branch.	                                    After PR merged.
+
+#Module 8 — Merge :
+
+Command	                              Description	                                              When to Use
+git merge <branch>	          Merge another branch into current branch.	                    Combine feature into main.
+
+#Module 9 — Pull Request Workflow :
+
+Step	        Action
+1	      Create feature branch
+2	        Write code
+3	        git add .
+4	      git commit -m "..."
+5	      git push origin feature/...
+6	      Open Pull Request
+7	        Review
+8	        Merge PR
+9	      git pull on main
+10	    Delete feature branch
+
+#Module 10 — Merge Conflicts :
+
+Command	                      Description
+git add .	                 Stage resolved files.
+git commit	          Finish merge after conflict resolution.
+
+#Module 11 — Git Stash :
+
+Command	                      Description	                                    When to Use
+git stash	            Save unfinished work temporarily.	            Switch tasks without committing.
+git stash list	      Show all stashes.	                                  View saved work.
+git stash pop	        Restore and remove latest stash.	                  Continue work.
+git stash apply	      Restore without deleting stash.	                  Reuse stash later.
+git stash drop	      Delete one stash.	                                    Cleanup.
+git stash clear	      Delete all stashes.	                          Remove all temporary work.
+
+#Module 12 — Reset :
+
+Command	                              Description	                                Effect
+git reset --soft HEAD~1	      Remove last commit, keep changes staged.	      Commit removed.
+git reset --mixed HEAD~1	    Remove commit and unstage files.	              Default reset.
+git reset --hard HEAD~1	      Remove commit and delete changes.	                 Dangerous.
+
+#Module 13 — Revert :
+
+Command	                              Description	                                          When to Use
+git revert HEAD	              Undo last commit by creating a new commit.	              Safe for shared history.
+git revert <commit-id>	      Undo a specific commit.	                                  Production bug fixes.
+git revert HEAD --no-edit	    Revert using default commit message.	                        Avoid editor.
+
+#Module 14 — Rebase :
+
+Command	                                      Description	                                                When to Use
+git rebase main	                    Replay current branch commits on top of local main.	             Update feature branch.
+git pull --rebase origin main	      Fetch latest remote main and rebase current branch onto it.	     Common company workflow.
+git rebase --continue	              Continue after resolving conflict.	                                During rebase.
+git rebase --abort	                        Cancel rebase.	                                         If something goes wrong.
+
+#Module 15 — Push After Rebase :
+
+Command	                                Description	                                        When to Use
+git push --force-with-lease	    Safely replace remote history after rebase.	          After rebasing a pushed branch.
+git push --force	              Force overwrite remote history.	                      Avoid unless absolutely necessary.
+
+#Module 16 — Cherry Pick :
+
+Command	                                    Description	                                    When to Use
+git cherry-pick <commit-id>	      Copy one commit to current branch.	                 Hotfixes, production fixes.
+git cherry-pick --continue	      Continue after conflict.	                           During cherry-pick.
+git cherry-pick --abort	          Cancel cherry-pick.	                                 If conflicts become difficult.
+
+#Module 17 — Useful Commands :
+
+Command	                                        Description
+git rev-list --count HEAD	                  Count total commits.
+git status	                              Check repository state.
+git branch	                         See current branch (* indicates active branch).
